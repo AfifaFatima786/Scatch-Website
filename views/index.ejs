@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    
+</head>
+<body>
+    <% if(error.length>0){ %>
+    <div class="absolute top-5 flex justify-center items-center rounded-md bg-red-500 ">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= error %>
+        </span>
+
+    </div>
+    <% } %>
+
+    <div class="flex flex-wrap w-full min-h-screen flex-col gap-30 ">
+        <div class="flex justify-center items-center " >
+            <h1 class="font-semibold text-2xl">Scatch</h1>
+        </div>
+        <div class=" bottom flex flex-wrap gap-60 justify-center items-center">
+            <div class="acc-create w-[30%]  p-5 gap-2.5 flex flex-col">
+                <div class="flex gap-2">
+                <h1 class="text-3xl font-semibold">welcome to </h1>
+                <h1 class="text-blue-900 text-2xl">Scatch</h1>
+                </div>
+                <h3>create your account</h3>
+                <div class="">
+                <form  class="flex flex-col gap-3 "  action="/users/register" method="post">
+
+                    <input class="border rounded p-1.5" type="text" placeholder="FullName" name="fullname">
+                    <input class="border rounded p-1.5 " type="email" placeholder="email" name="email">
+                    <input class="border rounded p-1.5 " type="password" placeholder="password" name="password">
+                    <input class="bg-blue-400 rounded-2xl p-2" type="submit" value="Create My Account">
+
+                </form>
+                </div>
+                <!-- <div class="flex flex-start">
+                <a class="bg-blue-400 rounded-2xl p-2" href="">Create My Account</a>
+                </div> -->
+            </div>
+            <div class="login p-5 gap-3 flex flex-col">
+                <h1 class="text-2xl font-semibold">Login Your Account</h1>
+                <div>
+                    <form  class="flex flex-col gap-3" action="/users/login" method="post">
+                        <input class="border rounded p-1.5 " type="email" placeholder="email" name="email">
+                        <input class="border rounded p-1.5 " type="password" placeholder="password" name="password">
+                        <input class="bg-blue-400 rounded-2xl p-2" type="submit" value="Login">
+                    </form>
+                </div>
+                <!-- <div class="flex flex-start">
+                <a class="bg-blue-400 rounded-2xl p-2" href="">Login</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
