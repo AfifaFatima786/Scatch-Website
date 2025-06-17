@@ -1,56 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
-</head>
-<body>
-     <div class="w-screen h-screen flex flex-col flex-wrap">
-       <div class="header">
-        <h1>Scatch</h1>
-       </div>
-       <div class="bottom flex flex-wrap justify-around items-start gap-30">
-        <div class="right">
-            <a href="">All Products</a>
-            <a href="">Create new Product</a>
-
-        </div>
-        <div class="left h-full flex flex-col gap-1 justify-center">
-            <h1 class="font-bold">Create New Product</h1>
-            <h3 class="font-semibold">Product Details</h3>
-            <h3 class="font-semibold">Product Image</h3>
-            
-            <form action="/product/create" method="post" enctype="multipart/form-data" class="flex flex-col gap-3 w-[80%]">
-                <div>
-                <input class="font-semibold " name="image" type="file" value="Select file" >
-                <input class="border p-1.5 rounded" name="name" type="text" placeholder="Product Name">
-                <input class="border p-1.5 rounded" type="text" placeholder="Product Price">
-                <input type="text" class="border p-1.5 rounded" name="price" placeholder="Discount Price" >
-                
-
-            
-            </div>
-            <div class=" mt-[5%]">
-                <h1>Panel Details</h1>
-                <div class="flex flex-wrap gap-5 w-[80%]">
-                
-                    <input type="text" class="border p-1.5 rounded" placeholder="Background Color">
-                    <input type="text" class="border p-1.5 rounded" placeholder="Panel Color">
-                    <input type="text" class="border p-1.5 rounded" placeholder="Text Color">
-                    <input type="submit" value="Create New Product" class="bg-blue-400 border rounded w-[20%]">
-                </form>
-                </div>
-            </div>
-        </div>
-       </div>
-
-     </div>
-    
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +35,7 @@
         <h3 class="font-semibold">Product Image</h3>
         </div>
 
-        <form action="/product/create" method="post" enctype="multipart/form-data" class="flex flex-col gap-3 w-[80%]">
+        <form action="/products/create" method="post" enctype="multipart/form-data" class="flex flex-col gap-3 w-[80%]">
           <div class="flex flex-col gap-3" >
             <input class="font-semibold" name="image" type="file">
             <input class="border p-1.5 rounded" name="name" type="text" placeholder="Product Name">

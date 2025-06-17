@@ -8,7 +8,7 @@ try{
     let {name,price,discount,bgcolor,panelcolor,textcolor}=req.body;
 
     let product=await productModel.create({
-         image:req.body.buffer,
+         image:req.file.buffer,
          name,
          price,
         discount,
@@ -19,8 +19,8 @@ try{
 
     })
 
-    res.flash("success","Product created successfully.");
-    res.redirect("/owners/admin");
+    req.flash("success","Product created successfully.");
+    res.redirect("/shop");
     
     }
     catch(err){
