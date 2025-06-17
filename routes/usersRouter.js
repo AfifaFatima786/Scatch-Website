@@ -4,12 +4,9 @@ const userModel=require("../models/usermodel")
 const bcrypt =require("bcrypt");
 const jwt=require("jsonwebtoken");
 const { generateToken }=require("../utils/generateToken")
-const {registerUser,loginUser,logoutUser}=require("../controllers/authController")
+const isLoggedIn=require("../middlewares/isLoggedIn")
+const {registerUser,loginUser,logoutUser,editaddress}=require("../controllers/authController")
 
-
-// router.get("/",function(req,res){
-//     res.send("hey its working");
-// })
 
 router.post("/register",registerUser);
 
@@ -17,7 +14,11 @@ router.post("/login",loginUser);
 
 
 
+
+
 router.get("/logout",logoutUser);
+
+router.put("/updateaddress",isLoggedIn,editaddress);
 
 
 

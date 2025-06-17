@@ -26,6 +26,11 @@ app.use(
         secret:process.env.EXPRESS_SESSION_SECRET,
     })
 )
+
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+
 app.use(flash())
 app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine","ejs");

@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+<%- include('./partials/header') %>
+<% var owner = typeof owner !== "undefined"?owner:false %>
     
-</head>
-<body>
-    
-    <div class="flex items-center justify-start ml-[10%] text-2xl font-semibold">
-            <h1>Scatch</h1>
-        </div>
-    <div class="w-full h-screen flex flex-wrap items-start px-17 py-10">
+    <% if( owner!==true){ %>
+   <% if(success.length>0 ){ %>
+    <div id="flashMessage" class="absolute top-1 p-1 flex left-1/2 -translate-x-1/2 rounded-md bg-blue-500 ">
+        <span class="inline-block flex justify-center items-center mt-1 mb-1 text-white">
+            <%= success %>
+        </span>
+
+    </div>
+    <% } %>
+    <% } %>
+
+    <div class="w-full h-screen flex flex-wrap items-start px-17 py-6">
         
-        <div class="w-[25%] flex h-screen flex-col items-start">
+        <div class="w-[25%] flex h-screen flex-col items-start p-5">
             <div class="flex items-center gap-2">
                 <h3>sort by</h3>
                 <form action="/shop">
@@ -54,15 +54,31 @@
                                 <h4>₹ <%= product.price %>
                                 </h4>
                             </div>
-                            <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="">
-                                <i class="ri-add-line"></i>
-                            </a>
+                            <% if (!owner) { %>
+    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="/addtocart/<%= product._id %>">
+        <i class="ri-add-line"></i>
+    </a>
+<% } else { %>
+    <div title="Add to cart disabled for owners" class="w-7 h-7 flex items-center justify-center rounded-full bg-gray-300 cursor-not-allowed">
+        <i class="ri-add-line text-gray-500"></i>
+    </div>
+<% } %>
+
                         </div>
                     </div>
                     <% }) %>
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+    <script>
+  // Automatically remove flash message after 2 seconds
+  setTimeout(function() {
+    const flash = document.getElementById("flashMessage");
+    if (flash) {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = 0;
+      setTimeout(() => flash.remove(), 500); // wait for fade-out before removing
+    }
+  }, 2000); 
+</script>
+<%- include('./partials/footer') %>

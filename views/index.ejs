@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
-    
-</head>
-<body>
+<%- include('./partials/header') %>
     <% if(error.length>0){ %>
-    <div class="absolute top-5 flex justify-center items-center rounded-md bg-red-500 ">
+    <div id="flashMessage" class="absolute top-1 p-1 flex left-1/2 -translate-x-1/2 rounded-md bg-red-500 ">
         <span class="inline-block mt-1 mb-1 text-white">
             <%= error %>
         </span>
@@ -18,9 +9,7 @@
     <% } %>
 
     <div class="flex flex-wrap w-full min-h-screen flex-col gap-30 ">
-        <div class="flex justify-center items-center " >
-            <h1 class="font-semibold text-2xl">Scatch</h1>
-        </div>
+        
         <div class=" bottom flex flex-wrap gap-60 justify-center items-center">
             <div class="acc-create w-[30%]  p-5 gap-2.5 flex flex-col">
                 <div class="flex gap-2">
@@ -38,10 +27,13 @@
 
                 </form>
                 </div>
-                <!-- <div class="flex flex-start">
-                <a class="bg-blue-400 rounded-2xl p-2" href="">Create My Account</a>
-                </div> -->
+                <div class="text-blue-500">
+                <a href="/owners/owner_login">Are u a owner? Click here to proceed.</a>
             </div>
+                
+            </div>
+
+            
             <div class="login p-5 gap-3 flex flex-col">
                 <h1 class="text-2xl font-semibold">Login Your Account</h1>
                 <div>
@@ -51,12 +43,21 @@
                         <input class="bg-blue-400 rounded-2xl p-2" type="submit" value="Login">
                     </form>
                 </div>
-                <!-- <div class="flex flex-start">
-                <a class="bg-blue-400 rounded-2xl p-2" href="">Login</a>
-                </div> -->
+                
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+
+    <script>
+  // Automatically remove flash message after 2 seconds
+  setTimeout(function() {
+    const flash = document.getElementById("flashMessage");
+    if (flash) {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = 0;
+      setTimeout(() => flash.remove(), 500); // wait for fade-out before removing
+    }
+  }, 2000); 
+</script>
+
+ <%- include('./partials/footer') %>

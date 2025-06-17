@@ -69,3 +69,28 @@ module.exports.logoutUser=async function(req,res){
     res.redirect("/")
 
 }
+
+module.exports.editaddress=async function(req,res){               
+    
+
+    try{
+    let {address}=req.body;
+    console.log(address);
+    
+    const user=await userModel.findOne({email:req.user.email});
+
+    user.address=address;
+    await user.save();
+    console.log(user);
+    res.redirect("/profile")
+
+
+    
+    
+}
+
+catch(err){
+    console.log(err.message);
+}
+    
+}

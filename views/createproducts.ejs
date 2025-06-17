@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>Document</title>
-</head>
-<body>
+<%- include('./partials/header') %>
 
      <% if(success.length>0){ %>
-    <div class="absolute top-5 flex justify-center items-center rounded-md bg-blue-500 ">
+    <div id="flashMessage" class="absolute top-1 p-1 flex left-1/2 -translate-x-1/2 rounded-md bg-blue-500 ">
         <span class="inline-block mt-1 mb-1 text-white">
             <%= success %>
         </span>
@@ -18,9 +10,7 @@
     <% } %>
 
   <div class="w-screen h-screen flex flex-col  flex-wrap">
-    <div class="header flex justify-center items-center font-semibold text-2xl">
-      <h1>Scatch</h1>
-    </div>
+    
 
     <div class="bottom flex flex-col flex-wrap  justify-evenly items-start gap-30">
       <div class="right flex flex-col gap-1.5">
@@ -57,5 +47,15 @@
       </div>
     </div>
   </div>
-</body>
-</html>
+  <script>
+  // Automatically remove flash message after 3 seconds
+  setTimeout(function() {
+    const flash = document.getElementById("flashMessage");
+    if (flash) {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = 0;
+      setTimeout(() => flash.remove(), 500); // wait for fade-out before removing
+    }
+  }, 2000); 
+</script>
+<%- include('./partials/footer') %>

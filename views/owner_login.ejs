@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+    
+
+    <div class="flex flex-wrap w-full min-h-screen flex-col gap-30 ">
+        
+        <div class=" bottom flex flex-wrap gap-60 justify-center items-center">
+            <div class="acc-create w-[30%]  p-5 gap-2.5 flex flex-col">
+                <div class="flex gap-2">
+                <h1 class="text-3xl font-semibold">welcome to </h1>
+                <h1 class="text-blue-900 text-2xl">Scatch</h1>
+                </div>
+                <h3>create your account</h3>
+                <div class="">
+                <form  class="flex flex-col gap-3 "  action="/owners/register" method="post">
+
+                    <input class="border rounded p-1.5" type="text" placeholder="FullName" name="fullname">
+                    <input class="border rounded p-1.5 " type="email" placeholder="email" name="email">
+                    <input class="border rounded p-1.5 " type="password" placeholder="password" name="password">
+                    <input class="bg-blue-400 rounded-2xl p-2" type="submit" value="Create My Account">
+
+                </form>
+                </div>
+                
+            </div>
+
+            
+            <div class="login p-5 gap-3 flex flex-col">
+                <h1 class="text-2xl font-semibold">Login Your Account</h1>
+                <div>
+                    <form  class="flex flex-col gap-3" action="/owners/login" method="post">
+                        <input class="border rounded p-1.5 " type="email" placeholder="email" name="email">
+                        <input class="border rounded p-1.5 " type="password" placeholder="password" name="password">
+                        <input class="bg-blue-400 rounded-2xl p-2" type="submit" value="Login">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+ <%- include('./partials/footer') %>
