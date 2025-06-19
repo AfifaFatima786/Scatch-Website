@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
+// console.log(process.env.EXPRESS_SESSION_SECRET)
+
 app.use(
     expressSession({
         resave:false,

@@ -18,15 +18,20 @@ try{
         textcolor,
 
     })
-
-    req.flash("success","Product created successfully.");
-    res.redirect("/shop");
     
+    req.flash("success","Product created successfully.");
+    res.redirect("/products/shop");
+
     }
     catch(err){
         res.send(err.message)
     }
 
+})
+router.get("/shop",async function(req,res){
+    const product=await productModel.find();
+
+    res.render("shop",{product,owner:true})
 })
 
 module.exports=router;
